@@ -3,15 +3,18 @@ let input = document.getElementById("input")
 let table = document.getElementById("t-body")
 let btnRemove = document.getElementById("btn-remove")
 
+
+
 upload.onclick=_=>{input.click()}
 btnRemove.addEventListener("click",_=>{
     table.innerHTML="";
     btnRemove.classList.add("hide")
 })
+
 input.addEventListener("change",e=>{
     for (const file of e.target.files) {
-            let reader = new FileReader;
-            reader.readAsDataURL(file)
+        let reader = new FileReader;
+        reader.readAsDataURL(file)
             let spantag = `<span class="span" style="cursor: pointer" id="span">x</span>`
             reader.onloadend=function(image){
                 console.log(file.name + " file loaded");
@@ -36,6 +39,13 @@ input.addEventListener("change",e=>{
         }
     }
     )
-    if (table.innerHTML=="") {
-        btnRemove.classList.add("hide")
+    
+
+    
+    var seconds = 1, the_interval = seconds * 1 * 1000;
+    setInterval(function() {
+      let span = document.getElementsByTagName("span")
+        if(span.length==0){
+            btnRemove.classList.add("hide")
         }
+    }, the_interval);
