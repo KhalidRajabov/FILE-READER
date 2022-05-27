@@ -4,13 +4,22 @@ let table = document.getElementById("t-body")
 let btnRemove = document.getElementById("btn-remove")
 
 
-
+//ikona basdıqda inputun kliklənməsi
 upload.onclick=_=>{input.click()}
+
+
+//table`ın bütün elementlərini silmək düyməsi:
 btnRemove.addEventListener("click",_=>{
     table.innerHTML="";
+
+    //table boş olduqda, yəni silməyə
+    //şəkil olmadığı üçün düymə də silinir
     btnRemove.classList.add("hide")
 })
 
+
+//şəkilləri table`a əlavə etmək
+//adı, ölçüsü və sil düyməsi ilə
 input.addEventListener("change",e=>{
     for (const file of e.target.files) {
         let reader = new FileReader;
@@ -34,6 +43,8 @@ input.addEventListener("change",e=>{
                     }
                 })
                 input.value=""
+
+                //şəkil əlavə olunduqda əsas sil düyməsi görünsün:
                 btnRemove.classList.remove("hide")
             }
         }
@@ -41,8 +52,19 @@ input.addEventListener("change",e=>{
     )
     
 
-    
-    var seconds = 1, the_interval = seconds * 1 * 1000;
+
+
+    //Bu taskda məndə yaranan əsas problem: Əgər şəkilləri birbir
+    //silmək istəsən heç bir şəkil qalmayanda əsas sil düyməsi
+    //də silinməlidi. Ama o kodu harda yazsam işləmirdi.
+    //Heç vaxt bu kod görünmürdü. Çünki ya bunu oxuyub table boş 
+    //olmurdu, və ya əvvəldən yaranmış olduğu üçün görülübmüş kimi
+    //qəbul etdiyi üçün silməyə bir şey tapmırdı deyə
+    //düyməni də silmirdi. Ona görə də hər saniyə durmadan 
+    //işləyən funksiya düzəltdim ki hər saniyə table1da element var
+    //ya yox yoxlasın. Tapmasa düyməni silsin 
+
+    var seconds = 1, the_interval = seconds * 1000;
     setInterval(function() {
       let span = document.getElementsByTagName("span")
         if(span.length==0){
