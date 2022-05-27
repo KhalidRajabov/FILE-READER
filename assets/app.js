@@ -30,9 +30,9 @@ input.addEventListener("change",e=>{
                 let tr = `
                 <tr>
                 <th scope="row"><img src="${image.target.result}" width="100"></th>
-                <td>${file.name}</td>
-                <td>${file.size}</td>
-                <td>${spantag}</td>
+                <td  >${file.name}</td>
+                <td  >${file.size}</td>
+                <td style="color: red; font-size: 200%;" >${spantag}</td>
                 </tr>
                 `
                 table.innerHTML+=tr

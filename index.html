@@ -8,19 +8,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="assets/app.js" defer></script>
     <title>FileUpload</title>
-
     <style>
-        i{
-            font-size: 200%;
-        }
-        input{
-            display: none;
-        }
-        .center{text-align: center;
-        }
         .hide{
             display: none;
-            
         }
     </style>
 </head>
@@ -28,19 +18,19 @@
     <div class="container">
         <div class="row mt-3">
             <div class="item text-center">
-                <i id="upload" style="cursor: pointer;" class="fa-solid fa-upload"></i>
-                <input id="input" type="file" multiple>
+                <i id="upload" style="cursor: pointer; font-size: 200%;" class="fa-solid fa-upload"></i>
+                <input class="hide" id="input" type="file" multiple>
             </div>
         </div>
         <div class="row mt-3">
-            <button id="btn-remove" class="btn btn-danger hide w-25">Delete all</button>
-            <table id="table" class="table table-dark">
+            <button id="btn-remove" style="margin-top: 50px;" class="btn btn-danger hide w-25">Delete all</button>
+            <table id="table" style="margin-top: 50px;" class="table table-dark">
                 <thead>
                   <tr>
-                    <th scope="col">Image</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Size</th>
-                    <th scope="col">Delete</th>
+                    <th style="width: 15%;" scope="col">Image</th>
+                    <th style="width: 70%;" scope="col">Name</th>
+                    <th style="width: 10%;" scope="col">Size</th>
+                    <th style="width: 5%; " scope="col">Delete</th>
                   </tr>
                 </thead>
                 <tbody id="t-body">
