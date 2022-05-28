@@ -66,6 +66,6 @@ input.addEventListener("change",e=>{
       let span = document.getElementsByTagName("span")
         if(span.length==0){
             btnRemove.classList.add("hide")
-            console.log("working...");
+            console.log(" setInterval working...");
         }
     }, the_interval);
