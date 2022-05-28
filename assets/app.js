@@ -2,7 +2,7 @@ let upload = document.getElementById("upload")
 let input = document.getElementById("input")
 let table = document.getElementById("t-body")
 let btnRemove = document.getElementById("btn-remove")
-
+let area = document.getElementById("area")
 
 //ikona basdıqda inputun kliklənməsi
 upload.onclick=_=>{input.click()}
@@ -21,7 +21,20 @@ btnRemove.addEventListener("click",_=>{
 //şəkilləri table`a əlavə etmək
 //adı, ölçüsü və sil düyməsi ilə
 input.addEventListener("change",e=>{
-    for (const file of e.target.files) {
+    uploadImage(e.target.files);
+    }
+    )
+    
+
+area.ondragover=function(el){
+    el.preventDefault();
+}
+area.ondrop=function(e){
+    e.preventDefault();
+    uploadImage(e.dataTransfer.files);
+}
+function uploadImage(item){
+    for (const file of item) {
         let reader = new FileReader;
         reader.readAsDataURL(file)
             let spantag = `<span class="span" style="cursor: pointer" id="span">x</span>`
@@ -48,11 +61,11 @@ input.addEventListener("change",e=>{
                 btnRemove.classList.remove("hide")
             }
         }
+
+
+
+
     }
-    )
-    
-
-
 
 
     //table`ın içi boş olarkən sil düyməsi silinməlidi.
