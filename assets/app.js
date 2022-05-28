@@ -54,20 +54,18 @@ input.addEventListener("change",e=>{
 
 
 
-    //Bu taskda məndə yaranan əsas problem: Əgər şəkilləri birbir
-    //silmək istəsən heç bir şəkil qalmayanda əsas sil düyməsi
-    //də silinməlidi. Ama o kodu harda yazsam işləmirdi.
-    //Heç vaxt bu kod görünmürdü. Çünki ya bunu oxuyub table boş 
-    //olmurdu, və ya əvvəldən yaranmış olduğu üçün görülübmüş kimi
-    //qəbul etdiyi üçün silməyə bir şey tapmırdı deyə
-    //düyməni də silmirdi. Ona görə də hər saniyə durmadan 
-    //işləyən funksiya düzəltdim ki hər saniyə table1da element var
-    //ya yox yoxlasın. Tapmasa düyməni silsin 
+
+    //table`ın içi boş olarkən sil düyməsi silinməlidi.
+    //Yəni ki orda elə şey olmamalıdı. Bu kodu 
+    //harda yazsam görmürdü. 4-5 variantda yazmışdım 
+    //Axırda məcbur belə variant yazdım ki hər saniyə 
+    //table`ı yoxlasın. Əgər table içi boş olsa düyməni silsin. 
 
     var seconds = 1, the_interval = seconds * 1000;
     setInterval(function() {
       let span = document.getElementsByTagName("span")
         if(span.length==0){
             btnRemove.classList.add("hide")
+            console.log("working...");
         }
     }, the_interval);
